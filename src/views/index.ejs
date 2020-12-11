@@ -1,0 +1,11 @@
+<%- include('includes/head'); %>
+
+    <h1>Testing CSRF TOKEN</h1>
+    <form action="/" method="POST">        
+        <!-- To work csrfToken it is necessary to create this input: hidden -->
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <input type="text" name="nome">
+        <button>Send</button>
+    </form>
+
+<%- include('includes/footer') %>
