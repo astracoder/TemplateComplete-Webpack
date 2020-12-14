@@ -1,0 +1,54 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-5">
+            <h1 class="display-1 text-center">Criar conta o Entrar</h1>
+            <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
+
+            <%- include('includes/messages') %>
+
+            <div class="row">
+                <div class="col-lg">
+                    <h4>Faça seu cadastro no AstroAgenda</h4>
+                    <p>Se você ainda não possui uma conta aqui na AstroAgenda, preecha o formulário abaixo</p>
+                    <form class="form-cadastro" action="/login/register" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <div class="form-group my-3">
+                          <label>E-mail</label>
+                          <input type="email" class="form-control" name="email" placeholder="Coloque seu melhor e-mail...">
+                        </div>
+                        <div class="form-group my-3">
+                          <label>Senha</label>
+                          <input type="password" class="form-control" name="senha" placeholder="Coloque sua melhor senha...">
+                        </div>
+                        <button type="submit" class="btn btn-primary my-3">Criar minha conta</button>
+                      </form>
+                </div>
+
+                <div class="col-lg">
+                    <h4>Entrar em minha conta</h4>
+                    <p>Já possui conta? Ótimo preencha os seus dados e entre agora mesmo :D</p>
+                    <form class="form-login" action="/login/login" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <div class="form-group my-3">
+                          <label>E-mail</label>
+                          <input type="email" class="form-control" name="email" placeholder="Coloque seu melhor e-mail...">
+                        </div>
+                        <div class="form-group my-3">
+                          <label>Senha</label>
+                          <input type="password" class="form-control" name="senha" placeholder="Coloque sua melhor senha...">
+                        </div>
+                        <button type="submit" class="btn btn-primary my-3">Entrar</button>
+                      </form>
+                </div>
+            </div>
+
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>
